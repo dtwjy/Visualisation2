@@ -1,0 +1,57 @@
+body *{
+    font-family: 'halvetica', sans-serif;
+}
+    
+.adjust-line-height {
+    line-height: 0.5em;
+  }
+
+.title-background {
+    background-color: #fbf9f0;
+  }
+
+.adjust-line-height2 {
+    line-height: 1.1em;
+  }
+
+h1 {
+    font-weight: 500;
+    
+}
+
+.top-bumper{
+    padding-top: 1em;
+}
+
+.page {
+    width: 850px;
+    background-color:#eddfc9;
+    margin: auto;
+    padding: 50px;
+    padding-top: 35px;
+}
+
+.vis-container {
+    width: 100%;
+}
+
+.description h2,
+h1 {
+    margin-top: 0px;
+}
+
+.description-right {
+    padding-left: 20px;
+}
+
+.description-left {
+    padding-right: 20px;
+}
+
+.pure-g {
+    margin-bottom: 40px;
+}
+
+.small-font {
+    font-size: 10px;
+}

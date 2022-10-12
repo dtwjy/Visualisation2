@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Assignment 2 FIT3179</title>
+  <!-- Import Vega & Vega-Lite (does not have to be from CDN) -->
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.22.1"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.5.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.21.0"></script>
+
+  <!-- Import pure.css -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css"
+    integrity="sha384-cg6SkqEOCV1NbJoCu11+bm0NvBRc8IYLRGXkmNrqUBfTjmMYwNKPWBTIKyw9mHNJ" crossorigin="anonymous">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- Import Emojis-->
+  <meta charset="UTF-8">
+
+  <!-- Google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+  <!-- CSS file -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+  <div class="page">
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div class="title-background">
+        <div class="adjust-line-height">
+          <h1><strong><center>Singpore Public Transport &#127480;&#127468;</center></strong></h1>
+          <p><center>Amazing Insights of Singapore's Public Transportation System.</center></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-3">
+        <div class="description description-left">
+          <div class="adjust-line-height2">
+          <h2>&#128694; Mode of Transport</h2>
+          <p><strong>As one of the best country with access to extensive mode of public transport,</strong> Singapore offers its people
+            different way to travel, from railways of <strong><font color="#60997d">MRT</font></strong> and 
+            <strong><font color="#C2B280">LRT</font></strong>, 
+            to traditional <strong><font color="#1D5171">bus</font></strong> 
+            and <strong><font color="#15B2D1">taxi</font> </strong>.
+        </p>
+        <p> The data suggest that the user of each of the mode of transport has vary from time to time, with 
+          <strong><font color="#1D5171">bus</font> majorly being the most popular within the year of 2004-2014.</strong>  
+        </p>
+        </div>
+        </div>
+      </div>
+      <div class="pure-u-2-3">
+        <div id="vis1" class="vis-container"></div>
+      </div>
+    </div>
+    <div class="pure-g">
+      <div class="pure-u-2-3">
+        <div id="vis6" class="vis-container">
+        </div>
+      </div>
+      <div class="pure-u-1-3">
+      <div class="description description-right">
+        <p>Eventhough <strong><font color="#1D5171">bus</font></strong> is mostly use by people as the mode of transport, 
+          it appears not to be the one that
+          people are travelling for a long distance trip.  
+          While <strong><font color="#60997d">MRT</font> and <font color="#15B2D1">taxi</font>  
+          are mostly used for longer distance travel </strong> 
+          with an average of 9-10 km trip.
+      </p>
+      <p>Meanwhile, <strong><font color="#C2B280">LRT</font></strong> was ranked last due to its limited number of stations it operates in that is generally
+        newly introduced in 2008.
+    </p>
+      </div>
+    </div>
+  </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-1-3">
+        <div class="description description-left">
+          <div class="adjust-line-height2">
+          <h2>&#x1F68C; Road Vehicle</h2>
+          <p>One of the most used public transport across the country would be using <strong><font color="#1D5171">bus</font></strong> 
+            which connects different parts of Singapore into interconnecting life city. 
+          </p>
+          <p>There are <strong>more than 5,000 <strong><font color="#1D5171">bus</font></strong> stops are placed across the country.</strong> In which, the average fleet are reaching more than 3700
+            in 2013. 
+          </p>
+          <p>In fact, in 2009 Singapore had closed down 5 routes while still operating more <strong><font color="#1D5171">buses</font></strong> compared to the previous year. 
+            On contrast, in 2008 the average of <strong><font color="#1D5171">buses</font></strong> has actually decreased with the increasing number of routes in the operation.
+          </p>
+        </div>
+        </div>
+      </div>
+      <div class="pure-u-2-3">
+        <div id="vis7" class="vis-container"></div>
+      </div>
+    </div>
+
+    <div class="pure-g">
+      <div class="pure-u-1-1">
+        <div id="vis2" class="vis-container"></div>
+      </div>
+    </div>
+    <!-- end pure grid group -->
+
+    <!-- pure grid group -->
+    <div class="pure-g">
+      <div class="pure-u-2-3">
+        <div class="description description-left">
+          <h2>&#128646; Railways</h2>
+          <p>The other alternative mode of transport is using Singapore's railway system which comprise mainly <strong><font color="#60997d">
+            MRT</font></strong> and 
+            <strong><font color="#C2B280">LRT</font></strong>. 
+            Since at the beginning we have noticed that the use of <strong><font color="#C2B280">LRT</font></strong>
+             is the lowest accross other type of transportation is 
+            mainly due to its limited number of stations available across the country. 
+          </p>
+          <p>Meanwhile, <strong><font color="#60997d">MRT</font></strong> and 
+            <strong><font color="#C2B280">LRT</font></strong>, 
+             are well integrated to each other, which ease the process of transferring. As we could see on
+            the map, stations are spread all across the country. 
+          </p><strong><font color="#C2B280">LRT</font></strong> Stations are mostly located on the north-east
+          region, which limit the reach by quite significant compared to <strong><font color="#60997d">MRT</font></strong>.
+          <p>
+          </p>
+        </div>
+      </div>
+      <div class="pure-u-1-3">
+        <div id="vis4" class="vis-container"></div>
+      </div>
+    </div>
+
+    <div class="pure-g">
+      <div class="pure-u-1-1">          
+        <div class="description description-left">
+          <div id="vis8" class="vis-container"></div>
+      </div>
+    </div>
+
+      <div class="pure-g">
+        <div class="pure-u-1-1">
+          <div class="top-bumper">          
+          <div class="description description-left">
+            <div id="vis3" class="vis-container"></div>
+          </div>
+        </div>
+      </div>
+    <!-- end pure grid group -->
+
+    <div class="pure-g">
+      <div class="top-bumper">     
+      <div class="pure-u-1-1 small-font">
+        <p>This visualisation is created by David Tanuwijaya, data from Singaporean Government and Kaggle.</p>
+      </div>
+      </div>
+    </div>
+
+
+  </div> <!-- end page -->
+
+  <script type="text/javascript">
+    var specVis1 = "./Passenger_Count_Bar.json";
+    var specVis2 = "./map1.json";
+    var specVis3 = "./map2.json";
+    var specVis4 = "./LRT_MRT_station_pie.json";
+    var specVis5 = "./bus_in_operation.json";
+    var specVis6 = "./AVG_Distance_linechart.json";
+    var specVis7 = "./route_average_new.json";
+    var specVis8 = "./LRT-MRT-Station-Overtime.json";
+
+
+    vegaEmbed('#vis1', specVis1, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis2', specVis2, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis3', specVis3, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis4', specVis4, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis5', specVis5, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis6', specVis6, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis7', specVis7, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis8', specVis8, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+  </script>
+</body>
+
+</html>

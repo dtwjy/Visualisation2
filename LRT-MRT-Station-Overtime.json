@@ -1,0 +1,68 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "data": {"url": "https://raw.githubusercontent.com/dtwjy/Assignment2/main/number-of-mrt-and-lrt-stations.csv"},
+    "width":800,
+    "title":"Stations Over Time",
+    "params": [
+        {
+          "name": "Mode_Selection",
+          "bind": {
+            "input": "select",
+            "options": [null, "LRT", "MRT"],
+            "labels": ["Show All", "LRT", "MRT"],
+            "name": "Type of Railways: "
+          }
+        }
+      ],
+      "transform": [
+        {
+          "filter": "Mode_Selection == null || datum.mode == Mode_Selection"
+        }
+      ],
+    "mark": "bar",
+    "encoding": {
+      "x": {
+        "field": "year",
+        "type": "nominal",
+        "title": "Year"
+      },
+      "y": {
+        "field":"stations",
+        "type": "quantitative"
+      },
+      "color": {
+        "field": "mode",
+        "type": "nominal",
+        "scale": {
+          "domain": ["LRT", "MRT"],
+        "range": ["#C2B280", "#60997d"]
+        },
+        "legend":null
+      },
+      "tooltip": [
+      {
+        "field": "year",
+        "type": "nominal",
+        "title": "Year"
+      },
+      {
+        "field": "mode",
+        "type": "nominal",
+        "title": "Type"
+      },
+      {
+        "field": "stations",
+        "type": "quantitative",
+        "title": "No. Stations"
+      }
+    ]
+    },
+    "config": {
+        "background":"#fbf9f0",
+        "style": {
+          "cell": {
+            "stroke": "transparent"
+          }
+        }
+      }
+  }

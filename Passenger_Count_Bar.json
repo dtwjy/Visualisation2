@@ -1,0 +1,65 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Singapore's Public Transport Usage",
+  "width": "container",
+  "data": {
+    "url": "https://raw.githubusercontent.com/dtwjy/Assignment2/main/public-transport-utilisation-average-public-transport-ridership.csv"
+  },
+  "params": [
+    {
+      "name": "transportation_selection",
+      "bind": {
+        "input": "select",
+        "options": [null, "Bus", "LRT", "MRT", "Taxi"],
+        "labels": ["Show All", "Bus", "LRT", "MRT", "Taxi"],
+        "name": "Type of Transport: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "datum.year >= 2004"},
+    {"filter": "datum.year < 2015"},
+    {
+      "filter": "transportation_selection == null || datum.type_of_public_transport == transportation_selection"
+    }
+  ],
+  "mark": "bar",
+  "encoding": {
+    "x": {"field": "year", "title": "Year"},
+    "y": {
+      "field": "average_ridership",
+      "type": "quantitative",
+      "title": "Average Riders"
+    },
+    "xOffset": {"field": "type_of_public_transport"},
+    "color": {
+      "field": "type_of_public_transport",
+      "scale": {
+        "domain": ["Bus", "LRT", "MRT", "Taxi"],
+        "range": ["#1D5171", "#C2B280", "#60997d", "#15B2D1"]
+      },
+      "title": "Type"
+    },
+    "tooltip": [
+      {
+        "field": "type_of_public_transport",
+        "type": "nominal",
+        "title": "Mode of Transport"
+      },
+      {
+        "field": "average_ridership",
+        "type": "nominal",
+        "title": "Average Riders",
+        "format": ".2s"
+      }
+    ]
+  },
+  "config": {
+    "background":"#fbf9f0",
+    "style": {
+      "cell": {
+        "stroke": "transparent"
+      }
+    }
+  }
+}

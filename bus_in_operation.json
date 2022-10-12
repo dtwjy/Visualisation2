@@ -1,0 +1,60 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": "container",
+    "height": 200,
+    "title": {
+      "text": "Bus Route vs Average Fleet in Operation ('0)",
+      "color": "black"
+    },
+    "data": {
+      "url": "https://raw.githubusercontent.com/dtwjy/Assignment2/main/public-transport-capacity-bus-routes-in-operation.csv"
+    },
+    "layer": [
+      {
+        "mark": {"type": "line", "point": true},
+        "encoding": {
+          "x": {"field": "year"},
+          "y": {
+            "field": "bus_route_in_operation",
+            "type": "quantitative",
+            "sort": "-x"
+          },
+          "tooltip": [
+            {
+              "field": "bus_route_in_operation",
+              "type": "nominal",
+              "title": "Route in Operation"
+            },
+            {"field": "ave_bus_fleet", "title": "Avg. Bus Fleet"}
+          ]
+        }
+      },
+      {
+        "mark": {"type": "line", "stroke": "grey", "point": true},
+        "encoding": {
+          "x": {"field": "year"},
+          "y": {
+            "field": "Standardised_fleet",
+            "type": "quantitative",
+            "title": null
+          },
+          "tooltip": [
+            {"field": "ave_bus_fleet", "title": "Avg. Bus Fleet"},
+            {
+              "field": "bus_route_in_operation",
+              "type": "nominal",
+              "title": "Route in Operation"
+            }
+          ]
+        }
+      }
+    ],
+    "config": {
+      "background":"#fbf9f0",
+      "style": {
+        "cell": {
+          "stroke": "transparent"
+        }
+      }
+    }
+  }

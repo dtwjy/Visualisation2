@@ -1,0 +1,52 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Railway Stations",
+    "width":"container",
+    "transform": [{"filter": "datum.year > 2015"}],
+    "data": {
+      "url": "https://raw.githubusercontent.com/dtwjy/Assignment2/main/number-of-mrt-and-lrt-stations.csv"
+    },
+    "layer": [
+      {
+        "mark": {"type": "arc", "innerRadius": 50},
+        "encoding": {
+          "theta": {"field": "stations", "type": "quantitative"},
+          "color": {"field": "mode", "type": "nominal", "title": "Mode", "scale": {
+            "domain": ["MRT", "LRT"],
+            "range": ["#60997d", "#C2B280"]}},
+          "tooltip": [
+          {
+            "field": "mode",
+            "type": "nominal",
+            "title": "Mode of Transport"
+          },
+          {
+            "field": "stations",
+            "type": "nominal",
+            "title": "No. Stations"
+          }
+        ]
+        }
+      },
+      {
+        "mark": {"type": "text", "fill": "#767676", "align": "center", "baseline": "middle", "dy": -15, "fontSize": "35"},
+        "encoding": {
+          "text": {"value": "180"}
+        }
+      }, 
+      {
+        "mark": {"type": "text", "fill": "#767676", "align": "center", "baseline": "middle", "dy": 12, "fontSize": "20"},
+        "encoding": {
+          "text": {"value": "Stations"}
+        }
+      }
+    ],
+    "config": {
+      "background":"#eddfc9",
+      "style": {
+        "cell": {
+          "stroke": "transparent"
+        }
+      }
+    }
+  }

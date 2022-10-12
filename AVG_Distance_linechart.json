@@ -1,0 +1,115 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Average Travel Distance",
+    "params": [
+      {
+        "name": "transportation_selection",
+        "bind": {
+          "input": "select",
+          "options": [null, "Bus", "LRT", "MRT", "Taxi"],
+          "labels": ["Show All", "Bus", "LRT", "MRT", "Taxi"],
+          "name": "Type of Transport: "
+        }
+      },
+      {
+        "name": "year_start",
+        "value": 0,
+        "bind": {
+        "input": "range",
+        "min": 2004,
+        "max": 2013,
+        "step": 1,
+        "name": "Year Start: "
+        }
+        }
+    ],
+    "transform": [
+      {
+        "filter": "transportation_selection == null || datum.mode == transportation_selection"
+      },
+      {
+        "filter": "datum.year > year_start"
+      }
+    ],
+    "width": "container",
+    "data": {"url": "https://raw.githubusercontent.com/dtwjy/Assignment2/main/public-transport-utilisation-average-trip-distance.csv"},
+    "layer":[
+    {
+    "mark": {
+      "type": "line",
+      "point": true
+    },
+    "encoding": {
+      "x": {"field": "year", "title": "Year"},
+      "y": {"field": "ave_distance_per_trip", "type": "quantitative",  "title": "Average Distance (Km)"},
+      "color": {
+        "field": "mode",
+        "type": "nominal",
+        "scale": {
+          "domain": ["Bus", "LRT", "MRT", "Taxi"],
+        "range": ["#1D5171", "#C2B280", "#60997d", "#15B2D1"]
+        },
+      "legend":null,
+      "title": "Type"},
+      "tooltip": [
+        {
+          "field": "year",
+          "title": "Year"
+        },
+        {
+          "field": "mode",
+          "type": "nominal",
+          "title": "Mode of Transport"
+        },
+        {
+          "field": "ave_distance_per_trip",
+          "type": "nominal",
+          "title": "Average Distance (km)"
+        }
+      ]
+    }
+  },
+  {
+    "mark": {
+      "type": "text",
+      "align": "right",
+      "fontSize": 11.5,
+      "fontStyle": "italic"
+      },
+      "encoding": {
+      "text": {"field": "mode", "type": "nominal"},
+      "color": {"value": "black"},
+      "opacity": {
+        "condition": {
+          "test": "datum.mode == 'Bus'",
+          "value": 1
+          },
+          "value": 0
+          },
+          "tooltip": [
+            {
+              "field": "year",
+              "title": "Year"
+            },
+            {
+              "field": "mode",
+              "type": "nominal",
+              "title": "Mode of Transport"
+            },
+            {
+              "field": "ave_distance_per_trip",
+              "type": "nominal",
+              "title": "Average Distance (km)"
+            }
+          ]
+          }
+  }],
+    "config": {
+      "background":"#fbf9f0",
+      "style": {
+        "cell": {
+          "stroke": "transparent"
+        }
+      }
+    }
+  }

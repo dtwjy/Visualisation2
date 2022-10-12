@@ -1,0 +1,75 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "Bus Stops 2022",
+  "width":"container",
+  "height": 350,
+  "params": [
+    {
+    "name": "zoom_level",
+    "value": 50000,
+    "bind": {
+    "input": "range",
+    "min": 50000,
+    "max": 350000,
+    "step": 100,
+    "name": "Zoom: "
+    }
+    },
+    {
+    "name": "center_to",
+    "value": [103.851959, 1.290270],
+    "bind": {
+    "input": "select",
+    "options": [
+    [103.851959, 1.290270],
+    [103.6744, 1.32599],
+    [103.89915, 1.32976],
+    [103.92278,1.37043],
+    [103.852036, 1.290475],
+    [103.80908, 1.41521]
+    ],
+    "labels": ["Default", "West", "East", "North-East", "Central", "North"],
+    "name": "Region: "
+    }}
+  ],
+  "projection": {"type": "mercator",
+  "center": {"expr": "center_to"},
+"scale": {"expr": "zoom_level"}},
+  "data": {
+        "url": "https://raw.githubusercontent.com/dtwjy/Assignment2/main/formattedData.csv"
+      },
+  "layer": [
+    {
+    "data": {
+      "url": "https://raw.githubusercontent.com/dtwjy/Homework_Week9/main/neighbourhoods_sg.json",
+      "format": {"type": "topojson", "feature": "neighbourhoods_sg"}
+    },
+    "mark": {"type": "geoshape", "fill": "lightgray", "stroke": "darkgray"}
+  },
+    {
+      "mark": {"type": "circle", "size": 5, "fill": "#1D5171"},
+      "encoding": {
+        "longitude": {"field": "Longitude", "type": "quantitative"},
+        "latitude": {"field": "Latitude", "type": "quantitative"},
+        "opacity": {"value": 0.7},
+        "tooltip": [
+          {"field": "ID", "type": "nominal",
+          "title": "Stop ID"},
+          {
+            "field": "Name",
+            "type": "nominal",
+            "title": "Stop Name"
+          }
+        ]
+      }
+    }
+  ],
+  "config": {
+    "background":"#fbf9f0",
+    "style": {
+      "cell": {
+        "stroke": "transparent"
+      }
+    }
+  }
+}
