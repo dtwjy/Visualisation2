@@ -1,6 +1,5 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "A population pyramid for the US in 2000.",
   "height": "container",
   "data": {
     "url": "https://raw.githubusercontent.com/dtwjy/Visualisation2/main/public-transport-capacity-bus-routes-in-operation.csv"
@@ -36,7 +35,7 @@
             "x": {
               "field": "ave_bus_fleet",
               "type": "quantitative",
-              "title": "population",
+              "title": "average fleets",
               "scale": {
                 "reverse": true
               },
