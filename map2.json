@@ -7,29 +7,6 @@
   "data": {
         "url": "https://raw.githubusercontent.com/dtwjy/Homework_Week9/main/mrt_lrt_data.csv"
       },
-  "params": [
-    {
-      "name": "Type_Selection",
-      "bind": {
-        "input": "select",
-        "options": [
-          null,
-          "MRT",
-          "LRT"
-        ],
-        "labels": [
-          "Show All",
-          "MRT",
-          "LRT"
-        ],
-        "name": "Type Selection: "
-      }
-    }],
-    "transform": [
-    {
-      "filter": "Type_Selection == null || datum.type == Type_Selection"
-    }
-  ],
   "layer": [
     {
       "data": {

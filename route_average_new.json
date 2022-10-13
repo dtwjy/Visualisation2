@@ -1,86 +1,207 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A population pyramid for the US in 2000.",
+  "height": "container",
   "data": {
-    "url": "https://raw.githubusercontent.com/dtwjy/Assignment2/main/public-transport-capacity-bus-routes-in-operation.csv"
+    "url": "https://raw.githubusercontent.com/dtwjy/Visualisation2/main/public-transport-capacity-bus-routes-in-operation.csv"
   },
-  "vconcat": [
-    {"hconcat":[{
-      "width":230,
-      "height": 180,
-      "title": "No. Bus Fleets",
-      "mark": {"type": "bar", "point": true},
+  "hconcat": [
+    {
+      "layer": [
+        {
+          "title": "Average Bus Fleets",
+          "data": {
+            "url": "https://raw.githubusercontent.com/dtwjy/Visualisation2/main/public-transport-capacity-bus-routes-in-operation.csv"
+          },
+          "mark": "bar",
+          "width": 240,
+          "params": [
+            {
+              "select": {
+                "encodings": [
+                  "y"
+                ],
+                "type": "point"
+              },
+              "name": "barSelect"
+            }
+          ],
+          "encoding": {
+            "y": {
+              "field": "year",
+              "title": null,
+              "axis": null,
+              "sort": "descending"
+            },
+            "x": {
+              "field": "ave_bus_fleet",
+              "type": "quantitative",
+              "title": "population",
+              "scale": {
+                "reverse": true
+              },
+              "axis": {
+                "format": ".2s"
+              }
+            },
+            "color": {
+              "condition": {
+                "param": "barSelect",
+                "value": "#1D5171"
+              },
+              "value": "#ddd"
+            },
+            "opacity": {
+              "condition": {
+                "test": "datum.year == '2008'",
+                "value": 1
+              },
+              "value": 0.3
+            },
+            "tooltip": [
+              {
+                "field": "ave_bus_fleet",
+                "title": "Avg. Bus Fleet"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "fontSize": 11.5,
+            "fontStyle": "bold",
+            "align": "right",
+            "xOffset": -85,
+            "yOffset": 11
+          },
+          "encoding": {
+            "text": {
+              "field": "ave_bus_fleet",
+              "type": "quantitative"
+            },
+            "color": {
+              "value": "black"
+            },
+            "opacity": {
+              "condition": {
+                "test": "datum.year == 2008",
+                "value": 1
+              },
+              "value": 0
+            }
+          }
+        }
+      ]
+    },
+    {
+      "view": {
+        "stroke": null
+      },
+      "mark": {
+        "type": "text",
+        "align": "center"
+      },
       "encoding": {
-        "x": {
-          "field": "year",
-          "title": null,
-          "scale": {"domain": {"param": "brush"}}
-        },
         "y": {
-          "field": "ave_bus_fleet",
-          "type": "quantitative",
-          "title": "Average Fleet"
+          "field": "year",
+          "type": "ordinal",
+          "axis": null,
+          "sort": "descending"
         },
-        "color":{"value":"#1D5171"},
-        "tooltip": [{"field": "ave_bus_fleet", "type": "nominal"}]
+        "text": {
+          "field": "year"
+        }
       }
     },
-    {"width":220,
-    "height":180,
-    "title": "No. of Routes",
-      "mark": {"type": "line", "point": true},
-      "encoding": {
-        "x": {"field": "year",
-        "title":null,
-        "scale": {"domain": {"param": "brush"}}},
-        "y": {
-          "field": "bus_route_in_operation",
-          "type": "quantitative",
-          "sort": "-x",
-          "title": "Operating Bus Routes"
-        },
-        "color": {"value": "#C2B280"},
-        "tooltip": [
-          {
-            "field": "bus_route_in_operation",
-            "type": "nominal",
-            "title": "Route in Operation"
-          },
-          {"field": "ave_bus_fleet", "title": "Avg. Bus Fleet"}
-        ]
-      }
-    }
-    ]},
     {
-      "width":510,
-      "height": 60,
-      "title": "No. Operating Routes",
-      "data": {
-        "url": "https://raw.githubusercontent.com/dtwjy/Assignment2/main/public-transport-capacity-bus-routes-in-operation.csv"
-      },
-      "mark": {"type": "area", "point": true},
-      "params": [
-        {"name": "brush", "select": {"type": "interval", "encodings": ["x"]}}
-      ],
-      "encoding": {
-        "x": {"field": "year", "axis": {"title": "Year"}},
-        "y": {
-          "field": "bus_route_in_operation",
-          "type": "quantitative",
-          "title": "No. of Routes"
-        },
-        "color": {"value": "#C2B280"},
-        "tooltip": [
-          {
-            "field": "bus_route_in_operation",
-            "type": "nominal",
-            "title": "No. Routes"
+      "layer": [
+        {
+          "width": 250,
+          "title": "Operating Routes",
+          "mark": "bar",
+          "params": [
+            {
+              "select": {
+                "encodings": [
+                  "y"
+                ],
+                "type": "point"
+              },
+              "name": "barSelect"
+            }
+          ],
+          "encoding": {
+            "y": {
+              "field": "year",
+              "title": null,
+              "axis": null,
+              "sort": "descending"
+            },
+            "x": {
+              "field": "bus_route_in_operation",
+              "type": "quantitative",
+              "title": "routes"
+            },
+            "color": {
+              "condition": {
+                "param": "barSelect",
+                "value": "#C2B280"
+              },
+              "value": "#ddd"
+            },
+            "opacity": {
+              "condition": {
+                "test": "datum.year == '2008'",
+                "value": 1
+              },
+              "value": 0.3
+            },
+            "tooltip": [
+              {
+                "field": "bus_route_in_operation",
+                "type": "nominal",
+                "title": "No. Routes"
+              }
+            ]
           }
-        ]
-      }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "fontSize": 11.5,
+            "fontStyle": "bold",
+            "align": "left",
+            "xOffset": 100,
+            "yOffset": 11
+          },
+          "encoding": {
+            "text": {
+              "field": "bus_route_in_operation",
+              "type": "quantitative"
+            },
+            "color": {
+              "value": "black"
+            },
+            "opacity": {
+              "condition": {
+                "test": "datum.year == '2008'",
+                "value": 1
+              },
+              "value": 0
+            }
+          }
+        }
+      ]
     }
   ],
   "config": {
-      "background":"#fbf9f0"
-      
-    }
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "grid": false
+    },
+    "background": "#fbf9f0"
+  }
 }

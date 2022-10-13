@@ -33,8 +33,6 @@
     ],
     "width": "container",
     "data": {"url": "https://raw.githubusercontent.com/dtwjy/Assignment2/main/public-transport-utilisation-average-trip-distance.csv"},
-    "layer":[
-    {
     "mark": {
       "type": "line",
       "point": true
@@ -67,43 +65,7 @@
           "title": "Average Distance (km)"
         }
       ]
-    }
-  },
-  {
-    "mark": {
-      "type": "text",
-      "align": "right",
-      "fontSize": 11.5,
-      "fontStyle": "italic"
-      },
-      "encoding": {
-      "text": {"field": "mode", "type": "nominal"},
-      "color": {"value": "black"},
-      "opacity": {
-        "condition": {
-          "test": "datum.mode == 'Bus'",
-          "value": 1
-          },
-          "value": 0
-          },
-          "tooltip": [
-            {
-              "field": "year",
-              "title": "Year"
-            },
-            {
-              "field": "mode",
-              "type": "nominal",
-              "title": "Mode of Transport"
-            },
-            {
-              "field": "ave_distance_per_trip",
-              "type": "nominal",
-              "title": "Average Distance (km)"
-            }
-          ]
-          }
-  }],
+    },
     "config": {
       "background":"#fbf9f0",
       "style": {
