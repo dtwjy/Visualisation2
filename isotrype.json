@@ -15,8 +15,7 @@
         {"country": "Singapore", "animal": "private"},
         {"country": "Singapore", "animal": "private"},
         {"country": "Singapore", "animal": "private"},
-        {"country": "Singapore", "animal": "private"},
-  
+        {"country": "Singapore", "animal": "private"}
       ]
     },
     "transform": [

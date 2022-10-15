@@ -1,0 +1,33 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 300, "height": 200,
+    "title": "Other Roadway Facilities",
+    "transform": [
+        {
+          "filter": "datum.year >= 2004"
+        },
+        {
+          "filter": "datum.facility != 'Bus Stops'"
+        }
+      ],
+    "data": {"url": "https://raw.githubusercontent.com/dtwjy/Visualisation2/main/annual_commuter_facilities.csv"},
+    "mark": "area",
+    "encoding": {
+      "x": {
+        "field": "year",
+        "title": "Year"
+      },
+      "y": {
+        "field": "number", "type": "quantitative", "sort": ["Bus Stops", "Bus Terminals", "Bus Interchanges", "Taxi Stands/Stops"]
+      },
+      "color": {
+          "field": "facility",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Bus Interchanges", "Bus Terminals", "Taxi Stands/Stops"],
+          "range": ["#1D5171", "#7297A0", "#B2A68D"]
+          },
+      }
+    }
+  }
+  
