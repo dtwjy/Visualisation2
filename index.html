@@ -70,7 +70,8 @@
         </div>
       </div>
       <div class="pure-u-1-3">
-      <div class="description description-right">
+        <div class="adjust-line-height2">
+          <div class="description description-right">
         <p>Eventhough <strong><font color="#1D5171">bus</font></strong> is mostly use by people as the mode of transport, 
           it appears not to be the one that
           people are travelling for a long distance trip.  
@@ -83,8 +84,31 @@
     </p>
       </div>
     </div>
+    </div>
   </div>
     <!-- end pure grid group -->
+
+    <div class="pure-g">
+      <div class="pure-u-1-3">
+        <div id="vis11" class="vis-container">
+        </div>
+      </div>
+      <div class="pure-u-1-3">
+      <div class="description description-middle">
+        <p>Continuous passenger decrease in public transport average commute time
+          from 2012-2014.</p> 
+        <p>However, in terms of the 
+          <strong>number of people who actually use the public transport has grow significantly, even cover 6/10 
+          workers commute using public transport in 2020.</strong> 
+      </p>
+    </div>
+    </div>
+    <div class="pure-u-1-3">
+      <div id="vis10" class="vis-container">
+      </div>
+      </p>
+    </div>
+  </div>
 
     <!-- pure grid group -->
     <div class="pure-g2">
@@ -113,7 +137,6 @@
       </p>
   </div>
 </div>
-
 
     <div class="pure-g">
       <div class="pure-u-1-1">
@@ -184,6 +207,9 @@
     var specVis6 = "./AVG_Distance_linechart.json";
     var specVis7 = "./route_average_new.json";
     var specVis8 = "./LRT-MRT-Station-Overtime.json";
+    var specVis9 = "./area_chart.json";
+    var specVis10 = "./isotrype.json";
+    var specVis11 = "./Commute_time.json";
 
 
     vegaEmbed('#vis1', specVis1, { "actions": false }).then(function (result) {
@@ -218,6 +244,17 @@
       // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
     }).catch(console.error);
 
+    vegaEmbed('#vis9', specVis9, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis10', specVis10, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
+
+    vegaEmbed('#vis11', specVis11, { "actions": false }).then(function (result) {
+      // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+    }).catch(console.error);
   </script>
 </body>
 

@@ -1,8 +1,8 @@
 {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "config": {"view": {"stroke": ""}},
-    "width": 800,
-    "height": 200,
+    "width": "container",
+    "height": 185,
     "title": "Public Transport User In 2020",
     "data": {
       "values": [
@@ -30,7 +30,19 @@
       "x": {"field": "rank", "type": "ordinal", "axis": null},
       "y": {"field": "animal", "type": "nominal", "axis": null, "sort": null},
       "text": {"field": "emoji", "type": "nominal"},
-      "size": {"value": 65}
+      "size": {"value": 40},
+      "tooltip":[
+        {"field":"animal", "title":"Mode of Transport"}
+      ]
+    },
+    "config": {
+      "view": {
+        "stroke": null
+      },
+      "axis": {
+        "grid": false
+      },
+      "background": "#fbf9f0"
     }
   }
   
