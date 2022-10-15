@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "title": "MRT and LRT Stations",
+  "title": "MRT and LRT Stations 2022",
   "width":840,
   "height": 350,
   "projection": {"type": "mercator"},

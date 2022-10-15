@@ -10,13 +10,24 @@ body *{
     background-color: #fbf9f0;
   }
 
+.title_font {
+    font-family: 'Silkscreen', cursive;
+}  
+
 .adjust-line-height2 {
     line-height: 1.1em;
   }
 
 h1 {
-    font-weight: 500;
-    
+    font-weight: 500;    
+    font-family: 'Manrope', sans-serif;
+    font-family: 'Silkscreen', cursive;
+}
+
+h2 {
+    font-weight: 500;    
+    font-family: 'Manrope', sans-serif;
+    font-family: 'Silkscreen', cursive;
 }
 
 .top-bumper{
