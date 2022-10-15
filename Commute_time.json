@@ -1,0 +1,20 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "description": "Bump chart",
+    "title": "Average Commute Distance",
+  "data": {"url": "https://raw.githubusercontent.com/dtwjy/Visualisation2/main/Passenger_Changes.csv"},
+    "mark": {"type": "line", "point": true},
+    "encoding": {
+      "x": {"field":"year",
+        "title": "Year", "type": "nominal"},
+      "y": {"field": "Growth", "type": "nominal", "sort": ["INCREASE", "UNCHANGE", "DECREASE"], "title":null},
+      "tooltip": [
+                {
+                  "field": "average_journey_distances",
+                  "type": "quantitative",
+                  "title": "Average Distance (Km)"
+                }
+              ]
+    }
+  }
+  
