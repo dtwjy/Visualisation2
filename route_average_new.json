@@ -116,7 +116,7 @@
     {
       "layer": [
         {
-          "width": 250,
+          "width": 240,
           "title": "Operating Routes",
           "mark": "bar",
           "params": [

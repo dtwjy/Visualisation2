@@ -28,6 +28,14 @@
           "range": ["#1D5171", "#7297A0", "#B2A68D"]
           },
       }
-    }
+    },
+    "config": {
+        "background":"#fbf9f0",
+        "style": {
+          "cell": {
+            "stroke": "transparent"
+          }
+        }
+      }
   }
   
